@@ -21,7 +21,7 @@ class WeatherViewModel(private val repository: Repository):BaseViewModel<Weather
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 state.postValue(WeatherState.Loading)
-                val response = repository.getTestWeather(city)
+                val response = repository.getWeather(city)
                 withContext(Dispatchers.Main) {
                     when (response) {
                         is Result.Success -> {
