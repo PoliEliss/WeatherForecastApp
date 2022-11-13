@@ -193,13 +193,13 @@ class MainFragment : Fragment() {
 
     private fun updateCurrentWeather() = with(binding) {
         viewModel.liveDataCurrentWeather.observe(viewLifecycleOwner) {
-            val maxMinTemp = "${it.maxTemp}C/${it.minTemp}C"
+            val maxMinTemp = "${it.maxTemp}°C/${it.minTemp}°C"
             tvData.text = it.time
             Picasso.get().load(getString(R.string.https) + it.imgUrl).into(imWeather)
             tvCityName.text = it.city
             tvCurrentTemp.text = it.currentTemp.ifEmpty {
-                "${it.maxTemp}/${it.minTemp}"
-            }
+                "${it.maxTemp}°C/${it.minTemp}"
+            }+"°C"
             tvCondition.text = it.condition
             tvMinMaxTemp.text = if (it.currentTemp.isEmpty()) "" else maxMinTemp
         }

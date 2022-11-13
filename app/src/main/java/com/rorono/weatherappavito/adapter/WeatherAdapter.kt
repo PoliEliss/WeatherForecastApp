@@ -30,9 +30,9 @@ class WeatherAdapter :
             }
             date.text = weather.time
             condition.text = weather.condition
-            temp.text = weather.currentTemp.ifEmpty {
-                "${weather.maxTemp}/ ${weather.minTemp}"
-            }
+            temp.text = weather.currentTemp.ifEmpty{
+                "${weather.maxTemp}°C/ ${weather.minTemp}"
+            }+"°C"
             Picasso.get().load("https:" + weather.imgUrl).into(ivWeather)
         }
 
