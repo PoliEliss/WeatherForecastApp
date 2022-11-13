@@ -1,5 +1,6 @@
 package com.rorono.weatherappavito.network
 
+import com.rorono.weatherappavito.models.remotemodels.SearchCity
 import com.rorono.weatherappavito.models.remotemodels.Weather
 import com.rorono.weatherappavito.utils.Constants
 import retrofit2.Response
@@ -15,4 +16,10 @@ interface WeatherApi {
         @Query("aqi") aqi: String = "no",
         @Query("alerts") alerts: String = "no",
     ): Response<Weather>
+
+    @GET("search.json?")
+    suspend fun getWeatherSearchCity(
+        @Query("key") key: String = Constants.API_KEY,
+        @Query("q") city: String,
+    ): Response<SearchCity>
 }

@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportFragmentManager.beginTransaction().replace(R.id.placeholder,MainFragment.newInstance()).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.placeholder, MainFragment.newInstance()).commit()
         val repository = Repository(retrofit = RetrofitInstance)
         val viewModelFactory = WeatherViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[WeatherViewModel::class.java]

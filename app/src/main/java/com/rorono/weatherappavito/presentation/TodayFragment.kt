@@ -1,13 +1,12 @@
 package com.rorono.weatherappavito.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rorono.weatherappavito.R
 import com.rorono.weatherappavito.adapter.ClickListener
 import com.rorono.weatherappavito.adapter.WeatherAdapter
 import com.rorono.weatherappavito.databinding.FragmentTodayBinding
@@ -16,7 +15,6 @@ import com.rorono.weatherappavito.viewmodel.WeatherViewModel
 
 
 class TodayFragment : Fragment() {
-
     private lateinit var adapter: WeatherAdapter
     private lateinit var binding: FragmentTodayBinding
     private val viewModel: WeatherViewModel by activityViewModels()
@@ -32,7 +30,7 @@ class TodayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-        viewModel.liveDataCurrentWeather.observe(viewLifecycleOwner){
+        viewModel.liveDataCurrentWeather.observe(viewLifecycleOwner) {
             val listHours = getHoursList(it)
             adapter.submitList(listHours)
         }
@@ -40,25 +38,26 @@ class TodayFragment : Fragment() {
             override fun onClick(weather: WeatherModel) {
             }
         })
-
     }
+
     private fun initRecyclerView() = with(binding) {
         rvToday.layoutManager = LinearLayoutManager(requireContext())
         adapter = WeatherAdapter()
         rvToday.adapter = adapter
     }
-    private fun getHoursList(weatherItem:WeatherModel):List<WeatherModel>{
+
+    private fun getHoursList(weatherItem: WeatherModel): List<WeatherModel> {
         val hoursList = weatherItem.hour
         val listHours = mutableListOf<WeatherModel>()
-        for (i in hoursList){
+        for (i in hoursList) {
             val item = WeatherModel(
                 weatherItem.city,
-                i.time.toString(),
+                i.time,
                 i.condition.text,
                 i.temp_c.toString(),
                 "",
                 "",
-                i.condition.icon.toString(),
+                i.condition.icon,
                 emptyList()
             )
             listHours.add(item)
@@ -70,5 +69,4 @@ class TodayFragment : Fragment() {
         @JvmStatic
         fun newInstance() = TodayFragment()
     }
-
 }
