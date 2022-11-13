@@ -19,4 +19,6 @@ class Repository (private val retrofit: RetrofitInstance){
             return@withContext Result.Error("Отсутствует интернет подключение")
         }
     }
+    suspend fun getWeatherSearchCity(city:String) = retrofit.api.getWeatherSearchCity(city = city)
+
 }
