@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_fragment_margin_end">10dp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_50">50sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="main_fragment_tv_city_name_margin_top">10dp</dimen>
+    <dimen name="main_fragment_im_weather_margin">5dp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="main_fragment_tv_data_margin_top">10dp</dimen>
+    <dimen name="main_fragment_tv_data_margin_start">10dp</dimen>
+    <dimen name="card_view_corner_radius">10dp</dimen>
+    <dimen name="card_view_margin">5dp</dimen>
+    <dimen name="rv_margin_bottom">50dp</dimen>
+    <dimen name="im_condition_width">50dp</dimen>
+    <dimen name="im_condition_height">50dp</dimen>
+    <dimen name="tv_condition_margin_top">5dp</dimen>
+    <dimen name="tv_condition_margin_bottom">5dp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="tv_date_margin_start">10dp</dimen>
+    <dimen name="tv_date_margin_top">10dp</dimen>
+    <dimen name="ite_weather_margin_top">3dp</dimen>
+</resources>
